@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard | DMU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar screen-only">
+        <a href="#" class="nav-brand"><img src="assets/logo.PNG" alt="DMU" class="logo"
+                onerror="this.style.display='none'"> DMU Portal</a>
+        <div class="hamburger" onclick="toggleNav()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <span class="badge">Student</span>
+            <span>Abebe Kebede</span>
+            <button class="btn-icon" onclick="toggleModal('passwordModal')" title="Change Password">
+                <img src="assets/setting.jpg" alt="Settings" class="settings-img" onerror="this.style.display='none'">
+            </button>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container screen-only">
+        <div class="flex justify-between items-center mb-4 flex-wrap" style="gap: 10px;">
+            <h2>Student Dashboard</h2>
+            <button class="btn btn-gold" onclick="triggerPrint()">Print Official Report</button>
+        </div>
+
+        <div class="grid grid-cols-2">
+            <div class="card stat-card">
+                <p style="color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Cumulative GPA</p>
+                <h3 style="color: var(--success);">3.18</h3>
+                <p>Status: <strong style="color: var(--brand-blue);">Promoted</strong></p>
+            </div>
+            <div class="card stat-card" style="border-color: var(--brand-gold);">
+                <p style="color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Total Credits</p>
+                <h3>20</h3>
+                <p>Software Engineering • Year 3</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Current Semester Records</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Cr.Hr</th>
+                            <th>Total (100)</th>
+                            <th>Letter Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Structures and Algorithm</td>
+                            <td>3</td>
+                            <td>88</td>
+                            <td><strong style="color:var(--success)">A</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Web Design and Programming</td>
+                            <td>3</td>
+                            <td>96</td>
+                            <td><strong style="color:var(--success)">A+</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Operating System and System Programming</td>
+                            <td>4</td>
+                            <td>76</td>
+                            <td><strong style="color:var(--info)">B+</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Fundamentals of Networking</td>
+                            <td>4</td>
+                            <td>68</td>
+                            <td><strong style="color:var(--info)">B-</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Object Oriented Programming</td>
+                            <td>3</td>
+                            <td>62</td>
+                            <td><strong style="color:var(--warning)">C+</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Computer Organization and Architecture</td>
+                            <td>3</td>
+                            <td>48</td>
+                            <td><strong style="color:var(--warning)">C</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINT VIEW -->
+    <div class="print-area print-only">
+        <div class="rc-header">
+            <h1>Debremarkos University</h1>
+            <h2>Institute of Technology</h2>
+            <h3>Grade Report</h3>
+        </div>
+        <div class="rc-separator">--------------------------------------------------</div>
+        <div class="rc-info">
+            <div>
+                <p><b>Admission:</b> Regular</p>
+                <p><b>Major:</b> Software Engineering</p>
+                <p><b>Year:</b> 2026 | <b>Sem:</b> II</p>
+            </div>
+            <div style="text-align: right;">
+                <p><b>Name:</b> Abebe Kebede</p>
+                <p><b>ID:</b> DMU/0012/14</p>
+            </div>
+        </div>
+        <table class="rc-table">
+            <tr>
+                <th>Course Title</th>
+                <th>Cr.Hr</th>
+                <th>Mark (100%)</th>
+                <th>Letter Grade</th>
+                <th>Grade Point</th>
+            </tr>
+            <tr>
+                <td>Data Structures and Algorithm</td>
+                <td>3</td>
+                <td>88</td>
+                <td>A</td>
+                <td>12.0</td>
+            </tr>
+            <tr>
+                <td>Web Design and Programming</td>
+                <td>3</td>
+                <td>96</td>
+                <td>A+</td>
+                <td>12.0</td>
+            </tr>
+            <tr>
+                <td>Operating System and System Programming</td>
+                <td>4</td>
+                <td>76</td>
+                <td>B+</td>
+                <td>14.0</td>
+            </tr>
+            <tr>
+                <td>Fundamentals of Networking</td>
+                <td>4</td>
+                <td>68</td>
+                <td>B</td>
+                <td>12.0</td>
+            </tr>
+            <tr>
+                <td>Object Oriented Programming</td>
+                <td>3</td>
+                <td>62</td>
+                <td>C+</td>
+                <td>7.5</td>
+            </tr>
+            <tr>
+                <td>Computer Organization and Architecture</td>
+                <td>3</td>
+                <td>48</td>
+                <td>C</td>
+                <td>6.0</td>
+            </tr>
+        </table>
+        <table class="rc-table" style="width: 50%;">
+            <tr>
+                <th>GPA</th>
+                <th>Credit Cumulative</th>
+            </tr>
+            <tr>
+                <td><b>3.18</b></td>
+                <td><b>20</b></td>
+            </tr>
+        </table>
+        <div class="rc-remarks">
+            <p style="text-decoration: underline; font-weight: bold; margin-bottom:5px;">Remarks Section:</p>
+            <ul>
+                <li><span class="rc-box">X</span> Promoted</li>
+                <li><span class="rc-box">&nbsp;</span> Academic Warning</li>
+            </ul>
+        </div>
+        <div style="margin-top: 40px; text-align: right; font-family: 'Times New Roman', serif;">
+            <p>___________________________</p>
+            <p>Registrar Signature & Date</p>
+        </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div id="passwordModal" class="modal-overlay hidden screen-only">
+        <div class="modal">
+            <h3 style="border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 15px;">Change
+                Password</h3>
+            <form onsubmit="submitChangePassword(event, 'passwordModal')">
+                <!-- .current-pwd enforces "dmuportal" check -->
+                <div class="mb-4"><label>Current Password</label><input type="password" class="input-field current-pwd"
+                        required></div>
+                <div class="mb-4"><label>New Password</label><input type="password" class="input-field new-pwd"
+                        required></div>
+                <div class="mb-4"><label>Confirm New Password</label><input type="password" class="input-field conf-pwd"
+                        required></div>
+                <div class="flex justify-between mt-4">
+                    <button type="button" class="btn btn-outline" onclick="toggleModal('passwordModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Universal Footer -->
+    <footer class="footer screen-only">
+        <div class="container" style="margin: 0 auto; padding: 0;">
+            <p>&copy; 2018 Debre Markos University - Institute of Technology.sec A g2 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="myscript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Dashboard | DMU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="nav-brand"><img src="assets/logo.PNG" alt="DMU" class="logo" onerror="this.style.display='none'"> DMU Portal</a>
+        <div class="hamburger" onclick="toggleNav()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <span class="badge">Instructor</span>
+            <span>Dr. Samuel</span>
+            <button class="btn-icon" onclick="toggleModal('passwordModal')" title="Change Password">
+                <img src="assets/setting.jpg" alt="Settings" class="settings-img" onerror="this.style.display='none'">
+            </button>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card flex justify-between items-center flex-wrap" style="border-left: 5px solid var(--brand-gold); gap: 10px;">
+            <div>
+                <h2>Welcome, Dr. Samuel</h2>
+                <p style="color: var(--text-muted);">Department of Computer Science</p>
+            </div>
+            <select class="input-field" style="width: auto; min-width: 250px;">
+                <option>Web Design and Programming (3 Cr)</option>
+                <option>Data Structures and Algorithm (3 Cr)</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <h3 class="mb-4">Grade Entry Panel</h3>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Student</th><th>ID</th><th>Mid (30%)</th><th>Ass. (20%)</th><th>Final (50%)</th><th>Total</th><th>Grade</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Abebe Kebede</td><td>DMU/0012/14</td>
+                            <td><input type="number" class="input-field mid-exam" max="30" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="input-field assignment" max="20" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="input-field final-exam" max="50" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td class="total-mark">--</td><td class="final-grade">--</td>
+                            <td><button class="btn btn-outline" onclick="saveGrade(this)">Save</button></td>
+                        </tr>
+                        <tr>
+                            <td>Sara Tadesse</td><td>DMU/0045/14</td>
+                            <td><input type="number" class="input-field mid-exam" value="28" max="30" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="input-field assignment" value="18" max="20" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="input-field final-exam" value="50" max="50" style="width:70px; margin:0;" oninput="calculateTotal(this)"></td>
+                            <td class="total-mark" style="color:var(--success); font-weight:bold;">96</td><td class="final-grade" style="color:var(--success); font-weight:bold;">A+</td>
+                            <td><button class="btn btn-outline" onclick="saveGrade(this)">Save</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div id="passwordModal" class="modal-overlay hidden screen-only">
+        <div class="modal">
+            <h3 style="border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 15px;">Change Password</h3>
+            <form onsubmit="submitChangePassword(event, 'passwordModal')">
+                <div class="mb-4"><label>Current Password</label><input type="password" class="input-field current-pwd" required></div>
+                <div class="mb-4"><label>New Password</label><input type="password" class="input-field new-pwd" required></div>
+                <div class="mb-4"><label>Confirm New Password</label><input type="password" class="input-field conf-pwd" required></div>
+                <div class="flex justify-between mt-4">
+                    <button type="button" class="btn btn-outline" onclick="toggleModal('passwordModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Universal Footer -->
+    <footer class="footer screen-only">
+        <div class="container" style="margin: 0 auto; padding: 0;">
+            <p>&copy; 2018  Debre Markos University - Institute of Technology.sec A g2 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="myscript.js"></script>
+</body>
+</html>

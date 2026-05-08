@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DMU Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="card" style="width: 100%; max-width: 400px; border-top: 8px solid var(--brand-blue); margin: auto;">
+        <div class="text-center mb-4">
+            <img src="assets/logo.PNG" alt="DMU" class="login-logo" onerror="this.style.display='none'">
+            <h2>Debre Markos University</h2>
+            <p style="color: var(--text-muted);">Academic Portal Login</p>
+        </div>
+
+        <form onsubmit="handleLogin(event)">
+            <div style="margin-bottom: 1rem;">
+                <label style="font-weight: 600; font-size: 0.9rem;">Username / User ID</label>
+                <!-- Required but blank! Must type exactly "dmuportal" -->
+                <input type="text" id="loginUser" class="input-field" placeholder="Enter Username..." required>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="font-weight: 600; font-size: 0.9rem;">Password</label>
+                <!-- Required but blank! Must type exactly "dmuportal" -->
+                <input type="password" id="loginPwd" class="input-field" placeholder="Enter Password..." required>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-weight: 600; font-size: 0.9rem;">Login As</label>
+                <select id="roleSelect" class="input-field">
+                    <option value="student">Student</option>
+                    <option value="instructor">Instructor</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+        </form>
+    </div>
+    <script src="myscript.js"></script>
+</body>
+
+</html>
